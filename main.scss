@@ -1,0 +1,192 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style-type: none;
+  text-decoration: none;
+}
+
+// Değişkenler
+$mavi-color: rgb(11, 36, 65);
+$danger-color: rgb(90, 18, 18);
+$header-color: #2c3e50;
+$box-color: #182c61;
+$insta-color: #f10d78;
+$dc-color: #1b9cfc;
+$tw-color: #25ccf7;
+$git-color: #4b6584;
+$yt-color: #ea2027;
+$link-color: #1289a7;
+$mail-color: #a5b1c2;
+// Değişkenler
+
+// extend
+.extendDeneme {
+  width: 300px;
+  height: 200px;
+  background-color: $danger-color;
+  border-radius: 30px;
+  color: white;
+  padding: 1rem;
+}
+// extend
+
+// mixin
+@mixin boxs($genislik, $tip, $renk) {
+  border: $genislik;
+  border-style: $tip;
+  border-color: $renk;
+}
+// mixin
+
+body {
+  background-color: $mavi-color;
+  font-family: "Oswald";
+  .container {
+    padding: 0 50px 0 50px;
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+      width: 100%;
+      background-color: $header-color;
+      padding: 0 30px 0 30px;
+      .logo {
+        h1 {
+          color: white;
+        }
+      }
+      nav {
+        ul {
+          display: flex;
+          gap: 20px;
+          li {
+            a {
+              color: white;
+            }
+            a:hover {
+              color: rgb(189, 189, 189);
+            }
+          }
+        }
+      }
+      .btn {
+        a {
+          padding: 10px 20px 10px 20px;
+          background-color: #4b7bec;
+          color: white;
+          border-radius: 10px;
+        }
+      }
+    }
+
+    .box-container {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      padding: 50px 0 50px 0;
+      .box {
+        background-color: $box-color;
+        width: 400px;
+        height: 100%;
+        border-radius: 10px;
+        text-align: center;
+        padding: 20px 30px 20px 30px;
+        img {
+          width: 130px;
+          height: 130px;
+          border-radius: 50%;
+          border: orange 2px solid;
+          padding: 5px 5px 5px 5px;
+        }
+        .text {
+          color: rgb(214, 208, 208);
+          h1 {
+            letter-spacing: 3px;
+          }
+          h4 {
+            color: #b33771;
+            letter-spacing: 3px;
+          }
+        }
+        .social-media {
+          display: flex;
+          justify-content: center;
+          gap: 15px;
+          a:hover {
+            background-color: white;
+            width: 30px;
+            height: 30px;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            border-radius: 50%;
+          }
+          .insta {
+            color: $insta-color;
+          }
+          .dc {
+            color: $dc-color;
+          }
+          .tw {
+            color: $tw-color;
+          }
+          .git {
+            color: $git-color;
+          }
+          .yt {
+            color: $yt-color;
+          }
+          .link {
+            color: $link-color;
+          }
+          .mail {
+            color: $mail-color;
+          }
+        }
+      }
+    }
+    .extends {
+      @extend .extendDeneme;
+      @include boxs(5px, solid, yellow);
+    }
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .container {
+    header {
+      nav {
+        ul {
+          display: none;
+        }
+      }
+      .btn {
+        a {
+          display: none;
+        }
+      }
+    }
+    .box-container {
+      .box {
+        width: 100% !important;
+        padding: 0px;
+        .text {
+          h1 {
+            font-size: 15px;
+          }
+          h4 {
+            font-size: 10px;
+          }
+        }
+        .social-media {
+          display: flex;
+          flex-wrap: wrap;
+        }
+      }
+    }
+  }
+}
